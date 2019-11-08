@@ -24,18 +24,18 @@ steps:
   displayName: Build
 
 # Stage hotfix
-- script: node ./ci/stage-hotfix.js
-  condition: and(succeeded(), eq(variables.os, 'Windows_NT'))
-  displayName: Stage hotfix
+#- script: node ./ci/stage-hotfix.js
+#  condition: and(succeeded(), eq(variables.os, 'Windows_NT'))
+#  displayName: Stage hotfix
 
 # Publish hotfix artifact
-- task: PublishBuildArtifacts@1
-  displayName: Publish hotfix artifact
-  condition: and(succeeded(), eq(variables.os, 'Windows_NT'))
-  inputs:
-    pathToPublish: _package/hotfix-layout
-    artifactName: hotfix
-    publishLocation: container
+#- task: PublishBuildArtifacts@1
+#  displayName: Publish hotfix artifact
+#  condition: and(succeeded(), eq(variables.os, 'Windows_NT'))
+#  inputs:
+#    pathToPublish: _package/hotfix-layout
+#    artifactName: hotfix
+#    publishLocation: container
 
 # Test
 - script: node make.js test
