@@ -1,6 +1,5 @@
 {
     "tasks": [       
-        "ContainerStructureTestV0",
         "ContainerBuildV0",
         "DockerV0",
         "DockerV1",
