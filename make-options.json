@@ -1,8 +1,8 @@
 {
     "tasks": [
-        "DockerV0",
-        "DockerV1",
-        "DockerV2",
+        "CacheBetaV0",
+        "CacheBetaV1",
+        "CacheV2", 
         "DockerComposeV0"
     ],
     "taskResources": [
