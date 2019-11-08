@@ -1,11 +1,11 @@
 import ma = require('azure-pipelines-task-lib/mock-answer');
 import tmrm = require('azure-pipelines-task-lib/mock-run');
 import path = require('path');
-
+console.log("--------------------Inputs have been set---------------------");
 const DefaultWorkingDirectory: string = "C:\\a\\w\\";
 let taskPath = path.join(__dirname, '..\\dockercompose.js');
 let tr: tmrm.TaskMockRunner = new tmrm.TaskMockRunner(taskPath);
-
+console.log("--------------------Inputs have been set---------------------");
 tr.setInput('containerregistrytype', process.env["__container_type__"] || 'Container Registry');
 tr.setInput('action', process.env["__command__"] || 'Build services');
 tr.setInput('dockerRegistryEndpoint', 'dockerhubendpoint');
