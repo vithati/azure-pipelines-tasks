@@ -22,11 +22,14 @@ describe('Docker Compose Suite', function() {
 
     if(tl.osType().match(/^Win/)) {
           it('Runs successfully for windows docker compose service build', (done:MochaDone) => {
+             console.log("--------------------Inputs have been set111---------------------");
              let tp = path.join(__dirname, 'L0Windows.js');
+              console.log("--------------------Inputs have been set222---------------------");
              let tr : ttm.MockTestRunner = new ttm.MockTestRunner(tp);
              process.env["__command__"] = "Build services";
+              console.log("--------------------Inputs have been set-2333--------------------");
              tr.run();
-
+            console.log("--------------------Inputs have been se3333t---------------------");
              assert(tr.invokedToolCount == 1, 'should have invoked tool one times. actual: ' + tr.invokedToolCount);
              assert(tr.stderr.length == 0 || tr.errorIssues.length, 'should not have written to stderr');
              assert(tr.succeeded, 'task should have succeeded');
