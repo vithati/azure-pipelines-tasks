@@ -21,19 +21,19 @@ describe('Docker Compose Suite', function() {
     });
 
     if(tl.osType().match(/^Win/)) {
-        //  it('Runs successfully for windows docker compose service build', (done:MochaDone) => {
-        //     let tp = path.join(__dirname, 'L0Windows.js');
-        //     let tr : ttm.MockTestRunner = new ttm.MockTestRunner(tp);
-        //     process.env["__command__"] = "Build services";
-        //     tr.run();
+          it('Runs successfully for windows docker compose service build', (done:MochaDone) => {
+             let tp = path.join(__dirname, 'L0Windows.js');
+             let tr : ttm.MockTestRunner = new ttm.MockTestRunner(tp);
+             process.env["__command__"] = "Build services";
+             tr.run();
 
-        //     assert(tr.invokedToolCount == 1, 'should have invoked tool one times. actual: ' + tr.invokedToolCount);
-        //     assert(tr.stderr.length == 0 || tr.errorIssues.length, 'should not have written to stderr');
-        //     assert(tr.succeeded, 'task should have succeeded');
-        //     assert(tr.stdout.indexOf("[command]docker-compose -f F:\\dir2\\docker-compose.yml build") != -1, "docker compose build should run");
-        //     console.log(tr.stderr);
-        //     done();
-        // });
+             assert(tr.invokedToolCount == 1, 'should have invoked tool one times. actual: ' + tr.invokedToolCount);
+             assert(tr.stderr.length == 0 || tr.errorIssues.length, 'should not have written to stderr');
+             assert(tr.succeeded, 'task should have succeeded');
+             assert(tr.stdout.indexOf("[command]docker-compose -f F:\\dir2\\docker-compose.yml build") != -1, "docker compose build should run");
+             console.log(tr.stderr);
+             done();
+         });
 
         // it('Runs successfully for windows docker compose push service', (done:MochaDone) => {
         //     let tp = path.join(__dirname, 'L0Windows.js');
@@ -79,23 +79,23 @@ describe('Docker Compose Suite', function() {
         //     done();
         // });
 
-        // it('Runs successfully for windows docker compose up command with ACR and additional docker compose file', (done:MochaDone) => {
-        //     let tp = path.join(__dirname, 'L0Windows.js');
-        //     let tr : ttm.MockTestRunner = new ttm.MockTestRunner(tp);
-        //     process.env["__command__"] = "Run a Docker Compose command";
-        //     process.env["__container_type__"] = "Azure Container Registry";
-        //     process.env["__additionalDockerComposeFiles__"] = "F:\\dir2\\docker-compose.override.yml";
-        //     process.env["__dockerComposeCommand__"] = "up -d"
+         it('Runs successfully for windows docker compose up command with ACR and additional docker compose file', (done:MochaDone) => {
+             let tp = path.join(__dirname, 'L0Windows.js');
+             let tr : ttm.MockTestRunner = new ttm.MockTestRunner(tp);
+             process.env["__command__"] = "Run a Docker Compose command";
+             process.env["__container_type__"] = "Azure Container Registry";
+             process.env["__additionalDockerComposeFiles__"] = "F:\\dir2\\docker-compose.override.yml";
+             process.env["__dockerComposeCommand__"] = "up -d"
+          
+             tr.run();
             
-        //     tr.run();
-            
-        //     assert(tr.invokedToolCount == 1, 'should have invoked tool one times. actual: ' + tr.invokedToolCount);
-        //     assert(tr.stderr.length == 0 || tr.errorIssues.length, 'should not have written to stderr');
-        //     assert(tr.succeeded, 'task should have succeeded');
-        //     assert(tr.stdout.indexOf("[command]docker-compose -f F:\\dir2\\docker-compose.yml -f F:\\dir2\\docker-compose.override.yml up -d") != -1, "successfully ran up command");
-        //     console.log(tr.stderr);
-        //     done();
-        // });
+             assert(tr.invokedToolCount == 1, 'should have invoked tool one times. actual: ' + tr.invokedToolCount);
+             assert(tr.stderr.length == 0 || tr.errorIssues.length, 'should not have written to stderr');
+             assert(tr.succeeded, 'task should have succeeded');
+             assert(tr.stdout.indexOf("[command]docker-compose -f F:\\dir2\\docker-compose.yml -f F:\\dir2\\docker-compose.override.yml up -d") != -1, "successfully ran up command");
+             console.log(tr.stderr);
+             done();
+         });
 
         // it('Runs successfully for windows docker compose up command with ACR and additional docker compose file not present warning', (done:MochaDone) => {
         //     let tp = path.join(__dirname, 'L0Windows.js');
