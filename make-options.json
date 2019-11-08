@@ -1,6 +1,5 @@
 {
     "tasks": [       
-        "ContainerBuildV0",
         "DockerComposeV0"
     ],
     "taskResources": [
