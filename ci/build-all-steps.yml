@@ -8,12 +8,12 @@ steps:
   clean: true
 
 # Only when building on Windows:
-- ${{ if eq(parameters.os, 'Windows_NT') }}:
+# ${{ if eq(parameters.os, 'Windows_NT') }}:
 
   # Start collect diagnostics
-  - powershell: ./ci/start-collect-diagnostics.ps1
-    displayName: Start collect diagnostics
-    condition: and(succeeded(), eq(variables.collect_diagnostics, 'true'))
+# - powershell: ./ci/start-collect-diagnostics.ps1
+#   displayName: Start collect diagnostics
+#   condition: and(succeeded(), eq(variables.collect_diagnostics, 'true'))
 
 # Use node 8, npm 5
 - task: NodeTool@0
@@ -41,21 +41,21 @@ steps:
   condition: ne(variables['numTasks'], 0)
 
 # Only on Windows:
-- ${{ if eq(parameters.os, 'Windows_NT') }}:
+#- ${{ if eq(parameters.os, 'Windows_NT') }}:
 
   # Stage packages
-  - script: node ./ci/stage-package.js
-    displayName: Stage package
-    condition: and(succeeded(), ne(variables['build.reason'], 'PullRequest'), ne(variables['numTasks'], 0))
+#  - script: node ./ci/stage-package.js
+#    displayName: Stage package
+#    condition: and(succeeded(), ne(variables['build.reason'], 'PullRequest'), ne(variables['numTasks'], 0))
 
   # Publish artifact
-  - task: PublishBuildArtifacts@1
-    displayName: Publish package artifact
-    condition: and(succeeded(), ne(variables['build.reason'], 'PullRequest'), ne(variables['numTasks'], 0))
-    inputs:
-      pathToPublish: _package/tasks.zip
-      artifactName: package
-      publishLocation: container
+# - task: PublishBuildArtifacts@1
+#  displayName: Publish package artifact
+#   condition: and(succeeded(), ne(variables['build.reason'], 'PullRequest'), ne(variables['numTasks'], 0))
+#   inputs:
+#     pathToPublish: _package/tasks.zip
+#     artifactName: package
+#     publishLocation: container
 
 # Test
 - script: node make.js test
@@ -66,9 +66,9 @@ steps:
   condition: ne(variables['numTasks'], 0)
 
 # Only when building on Windows:
-- ${{ if eq(parameters.os, 'Windows_NT') }}:
+#- ${{ if eq(parameters.os, 'Windows_NT') }}:
 
   # Stop collect diagnostics
-  - powershell: ./ci/stop-collect-diagnostics.ps1
-    displayName: Stop collect diagnostics
-    condition: and(always(), eq(variables.collect_diagnostics, 'true'), ne(variables['numTasks'], 0))
+#  - powershell: ./ci/stop-collect-diagnostics.ps1
+#    displayName: Stop collect diagnostics
+#    condition: and(always(), eq(variables.collect_diagnostics, 'true'), ne(variables['numTasks'], 0))
