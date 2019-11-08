@@ -2,13 +2,6 @@
     "tasks": [       
         "ContainerStructureTestV0",
         "ContainerBuildV0",
-        "CopyFilesV2",
-        "CopyFilesOverSSHV0",
-        "CUrlUploaderV2",
-        "DecryptFileV1",
-        "DelayV1",
-        "DeleteFilesV1",
-        "DeployVisualStudioTestAgentV2",
         "DockerV0",
         "DockerV1",
         "DockerV2",
