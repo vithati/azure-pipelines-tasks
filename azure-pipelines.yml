@@ -3,15 +3,15 @@ trigger: none
 jobs:
 
 # All tasks on Windows
-#- job: build_all_windows
-#  displayName: Build all tasks (Windows)
-#  condition: and(succeeded(), not(variables.task), eq(variables.os, 'Windows_NT'))
-#  pool:
-#    vmImage: vs2017-win2016
-#  steps:
-#  - template: ci/build-all-steps.yml
-#    parameters:
-#      os: Windows_NT
+- job: build_all_windows
+  displayName: Build all tasks (Windows)
+  condition: and(succeeded(), not(variables.task), eq(variables.os, 'Windows_NT'))
+  pool:
+    vmImage: vs2017-win2016
+  steps:
+  - template: ci/build-all-steps.yml
+    parameters:
+      os: Windows_NT
 
 # Publish on Windows
 #- job: publish_windows
@@ -47,8 +47,8 @@ jobs:
 #      os: Darwin
 
 # Single task
-- job: buildSingle
-  displayName: Build single task
-  condition: and(succeeded(), variables.task)
-  steps:
-  - template: ci/build-single-steps.yml
+#- job: buildSingle
+#  displayName: Build single task
+#  condition: and(succeeded(), variables.task)
+#  steps:
+#   - template: ci/build-single-steps.yml
